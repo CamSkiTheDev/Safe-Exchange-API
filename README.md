@@ -16,5 +16,6 @@
     
 ```    
 Frontend React
-https://github.com/CamSkiTheDev/Safe-Exchange-API.git
+
+https://github.com/CamSkiTheDev/safe-exchange.git
 ```
