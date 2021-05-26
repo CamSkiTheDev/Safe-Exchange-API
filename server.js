@@ -13,6 +13,8 @@ const mongoose = require("mongoose");
 // import log router
 const logRouter = require("./Routes/Log");
 
+const userRouter = require("./Routes/User");
+
 ///////////////////////////////
 // DATABASE CONNECTION
 ////////////////////////////////
@@ -31,6 +33,7 @@ mongoose.connection
 // ROUTES
 ////////////////////////////////
 app.use("/logs", logRouter);
+app.use("/users", logRouter);
 
 ///////////////////////////////
 // LISTENER
