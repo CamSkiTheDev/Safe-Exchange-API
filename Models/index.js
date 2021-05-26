@@ -15,8 +15,9 @@ const VideoSchema = new Schema(
 
 const LogSchema = new Schema(
   {
-    Time: String,
-    Geoposition: String,
+    time: String,
+    userid: String,
+    geoposition: String,
     isActive: Boolean,
     videos: [
       {
