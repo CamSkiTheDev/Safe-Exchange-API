@@ -1,4 +1,4 @@
-const User = require("../models/dog");
+const {User, Log} = require("../Models");
 const { Router } = require("express");
 const router = Router();
 
