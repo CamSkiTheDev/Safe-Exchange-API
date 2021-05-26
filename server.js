@@ -10,6 +10,8 @@ const express = require("express");
 const app = express();
 // import mongoose
 const mongoose = require("mongoose");
+// import log router
+const logRouter = require("./Routes/Log");
 
 ///////////////////////////////
 // DATABASE CONNECTION
@@ -28,10 +30,7 @@ mongoose.connection
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
-// create a test route
-app.get("/", (req, res) => {
-  res.send("Safe Exchange");
-});
+app.use("/logs", logRouter);
 
 ///////////////////////////////
 // LISTENER
