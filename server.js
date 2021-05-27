@@ -36,7 +36,7 @@ mongoose.connection
 ////////////////////////////////
 app.use("/logs", logRouter);
 app.use("/users", userRouter);
-app.use("/video", videoRouter);
+app.use("/videos", videoRouter);
 ///////////////////////////////
 // LISTENER
 ////////////////////////////////

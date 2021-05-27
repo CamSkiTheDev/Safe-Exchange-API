@@ -24,7 +24,7 @@ router.delete("/:id", async (req, res) => {
 
 //Show Route 
 router.get("/:id", async (req, res) =>{
-  res.json(await Video.findOne(req.params.id));
+  res.json(await Video.findById(req.params.id));
 });
 
 // EXPORT ROUTER
