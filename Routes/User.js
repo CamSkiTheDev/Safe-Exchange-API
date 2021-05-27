@@ -1,10 +1,10 @@
-const {User, Log} = require("../Models");
+const {User} = require("../Models");
 const { Router } = require("express");
 const router = Router();
 
 //index route
 router.get("/", async (req, res) => {
-  res.json(await User.find({}));
+  res.json(await User.find({}).populate("log"));
 });
 
 //create route
@@ -20,6 +20,11 @@ router.put("/:id", async (req, res) => {
 //delete route
 router.delete("/:id", async (req, res) => {
   res.json(await User.findByIdAndRemove(req.params.id));
+});
+
+//Show Route 
+router.get("/:id", async (req, res) =>{
+  res.json(await User.findOne({userid:req.params.id}).populate("log"));
 });
 
 // EXPORT ROUTER

@@ -15,6 +15,8 @@ const logRouter = require("./Routes/Log");
 
 const userRouter = require("./Routes/User");
 
+const videoRouter = require("./Routes/Video");
+
 ///////////////////////////////
 // DATABASE CONNECTION
 ////////////////////////////////
@@ -33,8 +35,8 @@ mongoose.connection
 // ROUTES
 ////////////////////////////////
 app.use("/logs", logRouter);
-app.use("/users", logRouter);
-
+app.use("/users", userRouter);
+app.use("/videos", videoRouter);
 ///////////////////////////////
 // LISTENER
 ////////////////////////////////
