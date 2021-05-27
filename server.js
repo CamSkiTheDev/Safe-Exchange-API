@@ -8,6 +8,8 @@ const { PORT = 3000, MONGODB_URL } = process.env;
 const express = require("express");
 // create application object
 const app = express();
+// import cors
+const cors = require("cors");
 // import mongoose
 const mongoose = require("mongoose");
 // import log router
@@ -30,10 +32,15 @@ mongoose.connection
   .on("error", (error) => console.log(error));
 
 ///////////////////////////////
+// Middleware
+////////////////////////////////
+app.use(cors());
+app.use(express.json());
+///////////////////////////////
 // ROUTES
 ////////////////////////////////
 app.use("/logs", logRouter);
-app.use("/users", logRouter);
+app.use("/users", userRouter);
 
 ///////////////////////////////
 // LISTENER
