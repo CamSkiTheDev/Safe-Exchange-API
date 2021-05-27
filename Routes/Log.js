@@ -4,7 +4,7 @@ const router = Router();
 
 //index route
 router.get("/", async (req, res) => {
-  res.json(await Log.find({}));
+  res.json(await Log.find({}).populate("videos"));
 });
 
 //create route
@@ -20,6 +20,11 @@ router.put("/:id", async (req, res) => {
 //delete route
 router.delete("/:id", async (req, res) => {
   res.json(await Log.findByIdAndRemove(req.params.id));
+});
+
+//Show Route 
+router.get("/:id", async (req, res) =>{
+  res.json(await Log.findById(req.params.id).populate("videos"));
 });
 
 // EXPORT ROUTER
