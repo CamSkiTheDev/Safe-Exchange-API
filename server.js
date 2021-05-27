@@ -43,11 +43,7 @@ app.use(express.json());
 ////////////////////////////////
 app.use("/logs", logRouter);
 app.use("/users", userRouter);
-<<<<<<< HEAD
-
-=======
 app.use("/videos", videoRouter);
->>>>>>> ab92455ce172b7b716cb13cfe987e9fc65adc24c
 ///////////////////////////////
 // LISTENER
 ////////////////////////////////
