@@ -1,4 +1,4 @@
-const {Video} = require("../Models");
+const {Video, Log} = require("../Models");
 const { Router } = require("express");
 const router = Router();
 
@@ -8,8 +8,17 @@ router.get("/", async (req, res) => {
 });
 
 //create route
-router.post("/", async (req, res) => {
-  res.json(await Video.create(req.body));
+router.post("/:logId", async (req, res) => {
+  const video = await Video.create(req.body);
+  const log = await Log.findById(req.params.logId);
+
+  log.videos.push(video._id)
+  video.log = log._id
+  
+  await log.save()
+  await video.save()
+
+  res.json(video)
 });
 
 //update route
