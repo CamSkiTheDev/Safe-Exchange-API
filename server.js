@@ -8,8 +8,16 @@ const { PORT = 3000, MONGODB_URL } = process.env;
 const express = require("express");
 // create application object
 const app = express();
+// import cors
+const cors = require("cors");
 // import mongoose
 const mongoose = require("mongoose");
+// import log router
+const logRouter = require("./Routes/Log");
+
+const userRouter = require("./Routes/User");
+
+const videoRouter = require("./Routes/Video");
 
 ///////////////////////////////
 // DATABASE CONNECTION
@@ -26,13 +34,16 @@ mongoose.connection
   .on("error", (error) => console.log(error));
 
 ///////////////////////////////
+// Middleware
+////////////////////////////////
+app.use(cors());
+app.use(express.json());
+///////////////////////////////
 // ROUTES
 ////////////////////////////////
-// create a test route
-app.get("/", (req, res) => {
-  res.send("Safe Exchange");
-});
-
+app.use("/logs", logRouter);
+app.use("/users", userRouter);
+app.use("/videos", videoRouter);
 ///////////////////////////////
 // LISTENER
 ////////////////////////////////
