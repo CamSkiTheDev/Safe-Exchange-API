@@ -4,7 +4,7 @@ const router = Router();
 
 //index route
 router.get("/:uid", async (req, res) => {
-  res.json(await Log.find({userid: req.params.uid}).populate("videos"));
+  res.json(await Log.find({ userid: req.params.uid }).populate("videos"));
 });
 
 //create route
@@ -29,7 +29,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 //Show Route
-router.get("/:id", async (req, res) => {
+router.get("/one/:id", async (req, res) => {
   res.json(await Log.findById(req.params.id).populate("videos"));
 });
 
