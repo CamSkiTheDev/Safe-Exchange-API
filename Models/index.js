@@ -18,7 +18,7 @@ const LogSchema = new Schema(
     time: String,
     userid: String,
     geoposition: String,
-    isActive: Boolean,
+    isActive: { type: String, required: true, default: true },
     videos: [
       {
         type: Types.ObjectId,
