@@ -4,7 +4,11 @@ const router = Router();
 
 //index route
 router.get("/:uid", async (req, res) => {
-  res.json(await Log.find({ userid: req.params.uid }).populate("videos"));
+  res.json(
+    await Log.find({ userid: req.params.uid, isActive: true }).populate(
+      "videos"
+    )
+  );
 });
 
 //create route
